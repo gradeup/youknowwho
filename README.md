@@ -1,10 +1,6 @@
 # youknowwho
 Rule engine for most of generic decisions and flow control
 
-[![Build Status](https://travis-ci.org/paytm/youknowwho.svg?branch=master)](https://travis-ci.org/paytm/youknowwho)
-[![Coverage Status](https://coveralls.io/repos/github/paytm/youknowwho/badge.svg?branch=master)](https://coveralls.io/github/paytm/youknowwho?branch=master)
-
-
 # Rules
 - *Id*            : Will be unique identification of a rule
 - *Name*          : Not used anywhere except for Logging
@@ -14,7 +10,7 @@ Rule engine for most of generic decisions and flow control
 - *Status*    : obvious
 - *Priority*  : Lower the integer value, higher the priority. Earlier the rule will be executed.
 
-- *Conditonal Operator* : Operator Applied to all conditions to calculate final True/False value for conditions.
+- *Conditional Operator* : Operator Applied to all conditions to calculate final True/False value for conditions.
     || if all conditions are to be || (ORed)
     && if all conditions are to be && (ANDed)
     Custom value E.g. <%= c[0] %> && <%= c[1] %> || <%= c[2] %> && <%= c[3] %> : which dictates how conditions are manipulated
@@ -110,15 +106,11 @@ function custom(callback, arg) {
 
  - **function context** : Rule engine will expose a *execContext* which will be the object which will hold all function definitions and will be supplied as the context (this) in function execution.
 
- - **Error handling/ execptions** : All functions will be called within a try-catch exception handling and rule engine is not expected to handle any error/exception.
+ - **Error handling/ exceptions** : All functions will be called within a try-catch exception handling and rule engine is not expected to handle any error/exception.
 
 
 ### Logs and Debugging
 ( Tag 0.0.7 ) UPDATED : wont emit logs anymore. This will be taken care by Meta object
-
-
-### GUI ?
-We at paytm save rules in Mysql and use Django Admin to create a rule engine around it. It is very simplistic..
 
 
 ### Usage
@@ -139,7 +131,7 @@ Applying Rules
 
     ruletag : single tag. TODO : support for multiple tags
 
-    generateMeta : (boolean) If you want to generate meta information of rul execution ( will be 50% slower to execute a rule ). Default false
+    generateMeta : (boolean) If you want to generate meta information of rule execution ( will be 50% slower to execute a rule ). Default false
 */
 
 meta_object = ruleEngineObject.applyRules(msg, ruletag, generateMeta);
@@ -263,7 +255,7 @@ Fastest is native
 - Why will we never support 'calling rules' with multiple tag options ? : Then conditional operators among tags will be a major requirement and tags are essentially rule groups.
 
 - Changing Rule Engine execution from sync to async :
-    + While sync offered a lot more performance benefit , ease of usage and code simplicity , it lacked a majority extensibility , i.e. executing cutom functions in code flows. Conditions, while sync, are forcefully made async to keep the options open, and to keep performance realistic.
+    + While sync offered a lot more performance benefit , ease of usage and code simplicity , it lacked a majority extensibility , i.e. executing custom functions in code flows. Conditions, while sync, are forcefully made async to keep the options open, and to keep performance realistic.
 
 
 ### Todo / improvements / known Bugs
@@ -271,4 +263,4 @@ Fastest is native
 - Rule Snapshots ? Rule Audits ?
 - How to define a common Rules language ? Currently Rules are picked from DB. Is that standard way , or should we define an API for this ?
 - Give a GUI to manage Rules/ get status/ get active Rules, etc...
-- Performance bnechmark
+- Performance benchmark
