@@ -33,6 +33,7 @@ var
     R_ACTIONS           = {
         RE_EXIT                 : "RE_EXIT",
         SET_VARIABLE            : "SET_VARIABLE",
+        SET_NUMBER              : "SET_NUMBER",
         DANGEROUS_EVAL          : "DANGEROUS_EVAL"
     },
 
@@ -198,6 +199,9 @@ function YKW(opts) {
 
         SET_VARIABLE            : function(msg, action, rule, actionMeta) {
             self.__applyActionSetVariable(msg, action, rule, actionMeta);
+        },
+        SET_NUMBER            : function(msg, action, rule, actionMeta) {
+            self.__applyActionSetNumber(msg, action, rule, actionMeta);
         },
         RE_EXIT        : function(msg, action, rule, actionMeta) {
             msg[R_ACTIONS.RE_EXIT] = true;
@@ -565,6 +569,21 @@ YKW.prototype.__applyActionSetVariable = function(msg, action, rule, actionMeta)
     if(typeof actVal === "function") actVal = actVal(msg);
 
     _.set(msg,  actKey, actVal);
+
+    // set Meta
+    actionMeta.key = actKey;
+    actionMeta.val = actVal;
+};
+
+/*
+   Apply Action SET NUMBER
+*/
+YKW.prototype.__applyActionSetNumber = function(msg, action, rule, actionMeta) {
+    var
+        actKey          = action.key,
+        actVal          = action.value;
+
+    _.set(msg, actKey, Number(actVal));
 
     // set Meta
     actionMeta.key = actKey;
