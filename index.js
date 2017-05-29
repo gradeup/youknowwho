@@ -40,6 +40,7 @@ var
     R_ACTIONS_REV_MAP   = {
         RE_EXIT                 : "RE_EXIT",
         SET_VARIABLE            : "SET_VARIABLE",
+        SET_NUMBER              : "SET_NUMBER",
         DANGEROUS_EVAL          : "DANGEROUS_EVAL"
     },
 
