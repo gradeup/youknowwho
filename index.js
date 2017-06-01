@@ -22,12 +22,18 @@ var
     TRANGE_BINARYSEARCH = require('tiny-range-binarysearch'),
     GLTV                = require('get-lodash-template-vars'),
 
+    SAFEEVAL                        = require('safe-eval'),
+
 
     /* Global Variables */
 
     R_OPERATORS         = {
         AND                     : "&&",
-        OR                      : "||"
+        OR                      : "||",
+        ADDITION                : "+",
+        SUBTRACTION             : "-",
+        MULTIPLICATION          : "*",
+        DIVISION                : "/"
     },
 
     R_ACTIONS           = {
@@ -389,6 +395,19 @@ YKW.prototype.applyRules = function(msg, tag, generateMeta) {
 
                 // Parse the condition into an tiny-range / moment etc object
                 condValue = self._parseCondition(condValue);
+                /*
+                  Here we are sure that the returned value is from lodash template
+                  This can be a a mathematical operation, so we will check if
+                  any of the mathematical operations is present and then
+                  safe evaluate it.
+                */
+                if (condValue.indexOf(R_OPERATORS.ADDITION) > -1 || condValue.indexOf(R_OPERATORS.SUBTRACTION) > -1 || condValue.indexOf(R_OPERATORS.MULTIPLICATION) > -1 || condValue.indexOf(R_OPERATORS.DIVISION) > -1) {
+                    try {
+                        condValue = SAFEEVAL(condValue);
+                    } catch (ex) {
+                        // do nothing here
+                    }
+                }
             }
 
             // Meta
