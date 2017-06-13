@@ -1,5 +1,5 @@
 {
-  "name": "youknowwho",
+  "name": "@gradeup/youknowwho",
   "version": "1.0.3",
   "description": "Rule engine for most of generic decision makings",
   "main": "index.js",
@@ -9,19 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/paytm/youknowwho.git"
+    "url": "git://github.com/gradeup/youknowwho.git"
   },
   "keywords": [
     "business",
     "rule",
     "engine"
   ],
-  "author": "Paytm",
+  "author": ["Paytm", "Gradeup"],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/paytm/youknowwho/issues"
+    "url": "https://github.com/gradeup/youknowwho/issues"
   },
-  "homepage": "https://github.com/paytm/youknowwho",
+  "homepage": "https://github.com/gradeup/youknowwho",
   "dependencies": {
     "lodash": "^4.12.0",
     "tiny-range-binarysearch": "git+https://github.com/paytm/tiny-range-binarysearch.git#v0.0.2",
@@ -38,5 +38,8 @@
     "mocha-lcov-reporter": "^1.2.0",
     "pre-commit": "^1.1.3",
     "should": "^8.3.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }
