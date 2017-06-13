@@ -80,7 +80,10 @@ var
         'NOT_STRINGRANGE'       : '!stringrange',
 
         'IS_OF_SET'             : 'set',
-        'IS_NOT_OF_SET'         :  '!set'
+        'IS_NOT_OF_SET'         :  '!set',
+
+        'INCLUDES_STRING'       : 'includesstring',
+        'INCLUDES_INT'          : 'includesint',
     },
 
     R_COND_OPS_REV_MAP          = {
@@ -110,6 +113,12 @@ var
 
         'set'           : 'IS_OF_SET',
         '!set'          : 'IS_NOT_OF_SET',
+
+        'includesstring': 'INCLUDES_STRING',
+        '!includesstring': 'NOT_INCLUDES_STRING',
+        'includesint'   : 'INCLUDES_INT',
+        '!includesint'   : 'NOT_INCLUDES_INT',
+
     };
 
 function YKW(opts) {
@@ -188,6 +197,18 @@ function YKW(opts) {
         },
         IS_NOT_OF_SET     : function(msgVal, cVal) {
             return !(self.__checkIsSet(cVal, msgVal));
+        },
+        INCLUDES_STRING   : function(msgVal, cVal) {
+            return msgVal.includes(cVal);
+        },
+        NOT_INCLUDES_STRING   : function(msgVal, cVal) {
+            return !(msgVal.includes(cVal));
+        },
+        INCLUDES_INT      : function(msgVal, cVal) {
+            return msgVal.includes(_.parseInt(cVal));
+        },
+        NOT_INCLUDES_INT      : function(msgVal, cVal) {
+            return !(msgVal.includes(_.parseInt(cVal)));
         },
 
         // none of the above
