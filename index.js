@@ -145,10 +145,10 @@ function YKW(opts) {
         */
 
         EQUALS            : function(msgVal, cVal) {
-            return (msgVal==cVal)? true : false;
+            return (self.__toBoolOrNull(msgVal==cVal))? true : false;
         },
         NOT_EQUALS        : function(msgVal, cVal) {
-            return (msgVal!=cVal)? true : false;
+            return (self.__toBoolOrNull(msgVal!=cVal))? true : false;
         },
         GREATER_THAN      : function(msgVal, cVal) {
             return (parseFloat(msgVal) > parseFloat(cVal))? true : false;
