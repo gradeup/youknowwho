@@ -151,16 +151,16 @@ function YKW(opts) {
             return (msgVal!=cVal)? true : false;
         },
         GREATER_THAN      : function(msgVal, cVal) {
-            return (_.parseInt(msgVal) > _.parseInt(cVal))? true : false;
+            return (parseFloat(msgVal) > parseFloat(cVal))? true : false;
         },
         GREATER_THAN_EQ   : function(msgVal, cVal) {
-            return (_.parseInt(msgVal) >= _.parseInt(cVal))? true : false;
+            return (parseFloat(msgVal) >= parseFloat(cVal))? true : false;
         },
         LESS_THAN         : function(msgVal, cVal) {
-            return (_.parseInt(msgVal) < _.parseInt(cVal))? true : false;
+            return (parseFloat(msgVal) < parseFloat(cVal))? true : false;
         },
         LESS_THAN_EQ      : function(msgVal, cVal) {
-            return (_.parseInt(msgVal) <= _.parseInt(cVal))? true : false;
+            return (parseFloat(msgVal) <= parseFloat(cVal))? true : false;
         },
         RANGE             : function(msgVal, cVal) {
             return self.__checkRange(cVal, msgVal);
