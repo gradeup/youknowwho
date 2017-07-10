@@ -50,11 +50,19 @@ Possible options are
 
 * ( '>', 'Great than Integer ( > )')
 
-* ( '>=', 'Great than Equals Integer( >= )'),
+  Before comparing, the value on both sides is parsed as float using [parseFloat][parsefloat-link].
+
+* ( '>=', 'Great than Equals Integer( >= )')
+
+	Before comparing, the value on both sides is parsed as float using [parseFloat][parsefloat-link].
 
 * ( '<', 'Less than Integer( < )')
 
+	Before comparing, the value on both sides is parsed as float using [parseFloat][parsefloat-link].
+
 * ( '<=', 'Less than Equals Integer(<= )')
+
+	Before comparing, the value on both sides is parsed as float using [parseFloat][parsefloat-link].
 
 * ('range', 'In Numerical Range ( range )')
 
@@ -312,3 +320,6 @@ Fastest is native
 - How to define a common Rules language ? Currently Rules are picked from DB. Is that standard way , or should we define an API for this ?
 - Give a GUI to manage Rules/ get status/ get active Rules, etc...
 - Performance benchmark
+
+
+[parsefloat-link]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/parseFloat
