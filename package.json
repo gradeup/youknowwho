@@ -1,6 +1,6 @@
 {
   "name": "@gradeup/youknowwho",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Rule engine for most of generic decision makings",
   "main": "index.js",
   "scripts": {
