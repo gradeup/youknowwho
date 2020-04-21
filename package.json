@@ -4,7 +4,6 @@
   "description": "Rule engine for most of generic decision makings",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha -- -R spec",
     "benchmark": "node benchmark"
   },
   "repository": {
@@ -16,25 +15,26 @@
     "rule",
     "engine"
   ],
-  "author": ["Paytm", "Gradeup"],
+  "author": [
+    "Paytm",
+    "Gradeup"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gradeup/youknowwho/issues"
   },
   "homepage": "https://github.com/gradeup/youknowwho",
   "dependencies": {
-    "lodash": "^4.12.0",
-    "tiny-range-binarysearch": "git+https://github.com/paytm/tiny-range-binarysearch.git#v0.0.2",
-    "validator": "~5.2.0",
-    "moment": "~2.13.0",
     "get-lodash-template-vars": "git+https://github.com/paytm/get-lodash-template-vars.git#v0.0.3",
-    "safe-eval": "^0.3.0"
+    "lodash": "^4.12.0",
+    "moment": "^2.24.0",
+    "safe-eval": "^0.4.1",
+    "tiny-range-binarysearch": "git+https://github.com/paytm/tiny-range-binarysearch.git#v0.0.2",
+    "validator": "~5.2.0"
   },
   "devDependencies": {
     "benchmark": "^2.1.0",
-    "coveralls": "^2.11.9",
-    "istanbul": "^0.4.3",
-    "mocha": "~2.3.3",
+    "mocha": "^7.1.1",
     "mocha-lcov-reporter": "^1.2.0",
     "pre-commit": "^1.1.3",
     "should": "^8.3.2"
